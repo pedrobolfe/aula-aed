@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container px-5 my-5">
+        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+            <div class="mb-3">
+                <label class="form-label" for="nome">Nome:</label>
+                <input class="form-control" id="nome" type="text" placeholder="Nome:" data-sb-validations="required" />
+                <div class="invalid-feedback" data-sb-feedback="nome:required">Nome: is required.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="sobrenome">Sobrenome:</label>
+                <input class="form-control" id="sobrenome" type="text" placeholder="Sobrenome:" data-sb-validations="required" />
+                <div class="invalid-feedback" data-sb-feedback="sobrenome:required">Sobrenome: is required.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="numero">Numero:</label>
+                <input class="form-control" id="numero" type="text" placeholder="Numero:" data-sb-validations="required" />
+                <div class="invalid-feedback" data-sb-feedback="numero:required">Numero: is required.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="endereco">Endereço:</label>
+                <input class="form-control" id="endereco" type="text" placeholder="Endereço:" data-sb-validations="" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="email">Email:</label>
+                <input class="form-control" id="email" type="email" placeholder="Email:" data-sb-validations="required,email" />
+                <div class="invalid-feedback" data-sb-feedback="email:required">Email: is required.</div>
+                <div class="invalid-feedback" data-sb-feedback="email:email">Email: Email is not valid.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="confirmeEmail">Confirme email</label>
+                <input class="form-control" id="confirmeEmail" type="email" placeholder="Confirme email" data-sb-validations="email,required" />
+                <div class="invalid-feedback" data-sb-feedback="confirmeEmail:required">Confirme email is required.</div>
+                <div class="invalid-feedback" data-sb-feedback="confirmeEmail:email">Confirme email Email is not valid.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="estadoCivil">Estado civil</label>
+                <select class="form-select" id="estadoCivil" aria-label="Estado civil">
+                    <option value="Solteiro(a)">Solteiro(a)</option>
+                    <option value="Casado(a)">Casado(a)</option>
+                    <option value="União Estável">União Estável</option>
+                    <option value="Divorciado(a)">Divorciado(a)</option>
+                    <option value="Viúvo(a)">Viúvo(a)</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="senha">Senha</label>
+                <input class="form-control" id="senha" type="text" placeholder="Senha" data-sb-validations="required" />
+                <div class="invalid-feedback" data-sb-feedback="senha:required">Senha is required.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="confirmeSenha">Confirme senha:</label>
+                <input class="form-control" id="confirmeSenha" type="text" placeholder="Confirme senha:" data-sb-validations="required" />
+                <div class="invalid-feedback" data-sb-feedback="confirmeSenha:required">Confirme senha: is required.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label d-block">Gostaria de receber notificações?</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="prefiroReceber" type="radio" name="gostariaDeReceberNotificacoes" data-sb-validations="required" />
+                    <label class="form-check-label" for="prefiroReceber">Prefiro receber</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="prefiroNaoReceber" type="radio" name="gostariaDeReceberNotificacoes" data-sb-validations="required" />
+                    <label class="form-check-label" for="prefiroNaoReceber">Prefiro não receber</label>
+                </div>
+                <div class="invalid-feedback" data-sb-feedback="gostariaDeReceberNotificacoes:required">One option is required.</div>
+            </div>
+            <div class="d-none" id="submitSuccessMessage">
+                <div class="text-center mb-3">
+                    <div class="fw-bolder">Form submission successful!</div>
+                    <p>To activate this form, sign up at</p>
+                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                </div>
+            </div>
+            <div class="d-none" id="submitErrorMessage">
+                <div class="text-center text-danger mb-3">Error sending message!</div>
+            </div>
+            <div class="d-grid">
+                <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>

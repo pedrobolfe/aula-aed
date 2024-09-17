@@ -7,6 +7,7 @@ build:
 	@javac -d bin aulas/*.java
 	@javac -d bin libs/*.java
 run:
+	@echo "--Executando o Trabalho do 2 Bimestre --"
 	@java -cp bin/ Main
 clear: 
 	rm -r bin/*

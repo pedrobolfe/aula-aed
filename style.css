@@ -1,0 +1,177 @@
+/* Estilo geral */
+body {
+    background-color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container principal */
+.container {
+    max-width: 950px;
+    margin: 20px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
+/* Título do formulário */
+h2 {
+    font-size: 2rem;
+    color: #ff6f61;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilo dos campos de formulário */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #ff6f61;
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 111, 97, 0.5);
+}
+
+.form-control::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Estilo dos campos de seleção */
+.form-select {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    transition: all 0.3s ease;
+}
+
+.form-select:focus {
+    border-color: #ff6f61;
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 111, 97, 0.5);
+}
+
+/* Estilo dos botões de opção */
+.form-check-input {
+    margin-right: 10px;
+}
+
+.form-check-label {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Estilo do botão de enviar */
+.btn-primary {
+    background-color: #ff6f61;
+    border-color: #ff6f61;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-primary:hover {
+    background-color: #e65c50;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(230, 92, 80, 0.4);
+}
+
+.btn-primary:active {
+    background-color: #d94b40;
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Feedback de validação */
+.invalid-feedback {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Mensagens de sucesso e erro */
+#submitSuccessMessage,
+#submitErrorMessage {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#submitSuccessMessage {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+#submitErrorMessage {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+
+/* Layout responsivo */
+@media (max-width: 1000px) {
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
