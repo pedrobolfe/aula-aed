@@ -1,6 +1,173 @@
 package libs;
 
 public class Vetores {
+
+    public static int[] lerInteiros(int n){
+        int[] saida = new int[n];
+        Entrada.abrir();
+
+        for (int i = 0; i < n; i++){
+            saida[i] = Entrada.lerInt();
+        }
+        Entrada.fechar();
+        return saida;
+    }
+
+    public static int obterPosicaoInteiro(int[] vetor, int valor_buscar, int pos_inicial){
+        for (int i = pos_inicial; i < vetor.length; i++){
+            if (vetor[i] == valor_buscar){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static int obterPosicaoReal(double[] vetor, double valor_buscar, int pos_inicial){
+        for (int i = pos_inicial; i < vetor.length; i++){
+            if (vetor[i] == valor_buscar){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static int obterPosicaoLogico(boolean[] vetor, boolean valor_buscar, int pos_inicial){
+        for (int i = pos_inicial; i < vetor.length; i++){
+            if (vetor[i] == valor_buscar){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static int obterPosicaoCaractere(char[] vetor, char valor_buscar, int pos_inicial){
+        for (int i = pos_inicial; i < vetor.length; i++){
+            if (vetor[i] == valor_buscar){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static int obterPosicaoCadeiaDeCaracteres(String[] vetor, String valor_buscar, int pos_inicial){
+        for (int i = pos_inicial; i < vetor.length; i++){
+            if (vetor[i].equals(valor_buscar)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static int[] obterIndicesInteiros(int[] vetor, int valor_buscar){
+        int[] indices;
+        int tam = 0;
+        int p = 0;
+
+        for (int i = 0; i < vetor.length; i++){
+            if(vetor[i] == valor_buscar){
+                tam++;
+            }
+        }
+
+        indices = new int[tam];
+
+        for (int j = 0; j < vetor.length; j++){
+            if (vetor[j] == valor_buscar) {
+                indices[p] = j;
+                p++;
+            }
+        }
+        return indices; 
+    }
+
+    public static int[] obterIndicesReais(double[] vetor, int valor_buscar){
+        int[] indices;
+        int tam = 0;
+        int p = 0;
+
+        for (int i = 0; i < vetor.length; i++){
+            if(vetor[i] == valor_buscar){
+                tam++;
+            }
+        }
+
+        indices = new int[tam];
+        
+        for (int j = 0; j < vetor.length; j++){
+            if (vetor[j] == valor_buscar) {
+                indices[p] = j;
+                p++;
+            }
+        }
+        return indices; 
+    }
+
+    public static int[] obterIndicesBoolean(boolean[] vetor, boolean valor_buscar){
+        int[] indices;
+        int tam = 0;
+        int p = 0;
+
+        for (int i = 0; i < vetor.length; i++){
+            if(vetor[i] == valor_buscar){
+                tam++;
+            }
+        }
+
+        indices = new int[tam];
+        
+        for (int j = 0; j < vetor.length; j++){
+            if (vetor[j] == valor_buscar) {
+                indices[p] = j;
+                p++;
+            }
+        }
+        return indices; 
+    }
+
+    public static int[] obterIndicesCaracter(char[] vetor, char valor_buscar){
+        int[] indices;
+        int tam = 0;
+        int p = 0;
+
+        for (int i = 0; i < vetor.length; i++){
+            if(vetor[i] == valor_buscar){
+                tam++;
+            }
+        }
+
+        indices = new int[tam];
+        
+        for (int j = 0; j < vetor.length; j++){
+            if (vetor[j] == valor_buscar) {
+                indices[p] = j;
+                p++;
+            }
+        }
+        return indices; 
+    }
+
+    public static int[] obterIndicesCadeiaCaracter(String[] vetor, String valor_buscar){
+        int[] indices;
+        int tam = 0;
+        int p = 0;
+
+        for (int i = 0; i < vetor.length; i++){
+            if(vetor[i].equals(valor_buscar)){
+                tam++;
+            }
+        }
+
+        indices = new int[tam];
+        
+        for (int j = 0; j < vetor.length; j++){
+            if (vetor[j].equals(valor_buscar)) {
+                indices[p] = j;
+                p++;
+            }
+        }
+        return indices; 
+    }
+
     public static int[] alocarInteiros(int qnt) {
         return new int[qnt];
     }
