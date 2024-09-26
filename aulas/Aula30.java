@@ -5,13 +5,13 @@ import libs.*;
 public class Aula30 {
     public static void aula(){
         System.out.println("-- Aula do dia 14/09/2024 --");
-        String[] in_vet = {"abacaxi", "maca", "abacaxi", "pera"};
+        int[] in_vet = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-        int[] vetor = Vetores.obterIndicesCadeiaCaracter(in_vet, "pera");
+        int[] vetor = Saida.filtrarMaiores(in_vet, 3);
 
-        //System.out.println("pos dos 5 " + vetor);
+        //System.out.println("====" + vetor);
+        //Saida.filtrarMaiores(in_vet, "-", 4);
         Vetores.mostrarVetInt(vetor);
-        
     }
 
     public static void modificaVetor(int[] vetor) {

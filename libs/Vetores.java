@@ -232,7 +232,7 @@ public class Vetores {
         System.out.print("]"); 
     }
 
-    public static int[] subVetorInt(int[] vet, int posIni, int posFim){
+    public static int[] subVetorInt(int[] vet, int posIni, int posFim){ // igual o substring, mas com inteiros
         if (posIni >=  vet.length) posIni = vet.length;
         if (posIni < 0) posIni = 0;
         if (posFim > vet.length) posFim = vet.length;
@@ -248,7 +248,75 @@ public class Vetores {
             vetSaida[aux] = vet[i];
             aux++;
         }
-
         return vetSaida;
+    }
+
+    public static char[] subVetorChar(char[] vet, int posIni, int posFim){ // igual o substring, mas com inteiros
+        if (posIni >=  vet.length) posIni = vet.length;
+        if (posIni < 0) posIni = 0;
+        if (posFim > vet.length) posFim = vet.length;
+        if (posFim < 0) posFim = 0;
+
+        int tamanho = posFim - posIni;
+        if (tamanho < 0) return new char[0];
+
+        char[] vetSaida = new char[tamanho];
+        int aux =0;
+
+        for (int i = posIni; i < posFim; i++) {
+            vetSaida[aux] = vet[i];
+            aux++;
+        }
+        return vetSaida;
+    }
+
+    public static String[] subVetorString(String[] vet, int posIni, int posFim){ // igual o substring, mas com inteiros
+        if (posIni >=  vet.length) posIni = vet.length;
+        if (posIni < 0) posIni = 0;
+        if (posFim > vet.length) posFim = vet.length;
+        if (posFim < 0) posFim = 0;
+
+        int tamanho = posFim - posIni;
+        if (tamanho < 0) return new String[0];
+
+        String[] vetSaida = new String[tamanho];
+        int aux =0;
+
+        for (int i = posIni; i < posFim; i++) {
+            vetSaida[aux] = vet[i];
+            aux++;
+        }
+        return vetSaida;
+    }
+
+    public static int[] removeRepetidos(int[] vetor){
+        int[] outVetor = new int[vetor.length];
+        int p = 0;
+        
+        for (int i = 0; i < vetor.length; i++) {
+            boolean repetido = false;
+            
+            for (int j = 0; j < p; j++) {
+                if (vetor[i] == outVetor[j]) {
+                    repetido = true;
+                    break;
+                }
+            }
+            
+            if (!repetido) {
+                outVetor[p] = vetor[i];
+                p++;
+            }
+        }
+        return subVetorInt(outVetor, 0, p);
+    }
+
+    public static boolean[] negarVetor(boolean[] vetor){
+        boolean[] outVetor = new boolean[vetor.length];
+
+        for (int i = 0; i < vetor.length; i++){
+            outVetor[i] = !vetor[i];
+        }
+        return outVetor;
     }
 }
