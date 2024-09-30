@@ -302,8 +302,8 @@ public class Vetores {
                     break;
                 }
             }
-            
             if (!repetido) {
+                
                 outVetor[p] = vetor[i];
                 p++;
             }
