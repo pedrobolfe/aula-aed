@@ -5,7 +5,7 @@ public class Aula31 {
     public static void aula(){
         System.out.println("== Aula 28: Matrizes");
 
-        ex3();
+        ex4();
     }
 
     public static void mostarMatriz(int[][] arr){
@@ -60,7 +60,7 @@ public class Aula31 {
             cont = arr.length/2;
             for (int j = 0; j < arr[i].length; j++) {
                 if (i == 0 || i == arr.length-1 || j == 0 || j == arr[i].length -1) {
-                    arr[i][j] = 1;
+                    arr[i][22] = 1;
                 }
             }
         }
