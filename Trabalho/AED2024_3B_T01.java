@@ -1,6 +1,17 @@
 package Trabalho;
 
 public class AED2024_3B_T01 {
+    public static void mostrarVetLogico(boolean vet[]){
+        System.out.print("[");
+        for (int i = 0; i < vet.length; i++) {
+            System.out.print(vet[i]);
+            if (i < vet.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.print("]"); 
+    }
+
     public static void mostrarVetInt(int vet[]){
         System.out.print("[");
         for (int i = 0; i < vet.length; i++) {
@@ -67,7 +78,92 @@ public class AED2024_3B_T01 {
         return subVetorInt(outVetor, 0, p);// subvetorInt vai ir ate o numero de ca
     }
 
+    public static boolean[] aplicarELogico(boolean[] vetA, boolean[] vetB){
+        boolean[] vetSaida = new boolean[vetA.length];
 
+        for(int i=0; i < vetA.length; i++){
+            vetSaida[i] = vetA[i] & vetB[i];
+        }
+        return vetSaida;    
+    }
+
+    public static boolean[] aplicarOuLogico(boolean[] vetA, boolean[] vetB){
+        boolean[] vetSaida = new boolean[vetA.length];
+
+        for(int i=0; i < vetA.length; i++){
+            vetSaida[i] = vetA[i] || vetB[i];
+        }
+        return vetSaida;    
+    }
+
+    public static int[] aplicarMascara(int[] vetor, boolean[] mask){
+        int[] vetSaida = new int[vetor.length];
+        int cont =0;
+        for (int i = 0; i < vetSaida.length; i++){
+            if (mask[i]){
+                vetSaida[cont] = vetor[i];
+                cont++;
+            }
+        }
+        return subVetorInt(vetSaida, 0, cont);
+    }
+
+    public static boolean seValorIntExistir(int[] vetor, int valor_buscar){
+        for (int i = 0; i < vetor.length; i++){
+            if (vetor[i] == valor_buscar){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static int[] uniao(int[] vetA, int[] vetB){
+        int[] vetSaida = new int[vetA.length + vetB.length];
+        int cont =0;
+
+        for (int i=0; i < vetA.length; i++){
+            if (!seValorIntExistir(vetSaida, vetA[i])){
+                vetSaida[cont] = vetA[i];
+                cont++;
+            } 
+            if (!seValorIntExistir(vetSaida, vetB[i])){
+                vetSaida[cont] = vetB[i];
+                cont++;
+            }
+        }
+
+        return subVetorInt(vetSaida, 0, cont);
+    }
+
+    public static int[] intersecao(int[] vetA, int[] vetB){
+        int[] vetSaida = new int[vetA.length + vetB.length];
+        int cont =0;
+
+        for (int i = 0; i < vetA.length; i++){
+            if (seValorIntExistir(vetB, vetA[i])){
+                if (!seValorIntExistir(vetSaida, vetA[i])){
+                    vetSaida[cont] = vetA[i];
+                    cont++;
+                }
+            }
+        }
+        return subVetorInt(vetSaida, 0, cont);
+    }
+
+    public static int[] diferencaVetA(int[] vetA, int[] vetB){
+        int[] vetSaida = new int[vetA.length + vetB.length];
+        int cont =0;
+
+        for (int i = 0; i < vetA.length; i++){
+            if (!seValorIntExistir(vetB, vetA[i])){
+                if (!seValorIntExistir(vetSaida, vetA[i])){
+                    vetSaida[cont] = vetA[i];
+                    cont++;
+                }
+            }
+        }
+        return subVetorInt(vetSaida, 0, cont);
+    }
 
     public static int[][] multiplicaMatrizes(int[][] matrizA, int[][] matrizB){
         if (matrizA.length != matrizB[0].length || matrizA[0].length != matrizB.length) return null;
