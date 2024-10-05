@@ -2,13 +2,16 @@ package aulas;
 
 public class Aula33 {
     public static void aula() {
-        System.out.println("== Aula 33 - Trabalho ==");
+        System.out.println("== Aula 32 - Trabalho ==");
 
-        int[] vet = {1,1, 4};
-        int[] vet2 = {2, 1, 2, 3};
+        int[][] vet = {
+            {1, 1, 4},
+            {2, 2, 2}
+        };
+        
 
-        int[] saida= Trabalho.AED2024_3B_T01.diferencaVetA(vet, vet2);
-        Trabalho.AED2024_3B_T01.mostrarVetInt(saida);
+        int[][] saida= Trabalho.AED2024_3B_T01.matrizTranspor(vet);
+        Trabalho.AED2024_3B_T01.mostrarMatriz(saida);
         System.out.println();
     }
 }
