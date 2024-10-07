@@ -2,19 +2,15 @@ package Trabalho;
 
 public class AED2024_3B_T01 {
     public static void mostrarMatriz(int[][] arr){
-        //int[][] arr = new int[5][5];
         for (int i = 0; i < arr.length; i++) {
             System.out.print("[");
             for (int j = 0; j < arr[i].length; j++) {
                 System.out.print(arr[i][j]);
                 if (j < arr[i].length - 1) {
-                    System.out.print(", ");
+                    System.out.print(",\t");
                 }
             }
             System.out.print("]\n");
-            // if (i < arr.length -1){
-            //     System.out.print(",\n");
-            // }
         } 
     }
     
@@ -204,8 +200,35 @@ public class AED2024_3B_T01 {
     public static int [][] matrizTranspor(int[][] matrizA){
         int[][] transposta = new int[matrizA[0].length][matrizA.length];
 
-
+        for (int i=0; i < matrizA.length; i++){
+            for (int j =0; j<matrizA[0].length; j++){
+                transposta[j][i] = matrizA[i][j];
+            }
+        }
         return transposta;
+    }
+
+    // preencher a diagonal e a coluna 0
+    public static int[][] inicializandoTriangulo(int tam){
+        int[][] arr = new int[tam][tam];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i][i] = 1;
+            arr[i][0] = 1;
+        }
+        return arr;
+    }
+
+    public static int[][] trianguloPascal(int tamLinhas){
+        // usando a 2 propriedade
+        //int[][] vetSaida = new int[tamLinhas][tamLinhas];
+        int[][] vetSaida = inicializandoTriangulo(tamLinhas);
+
+        for (int i = 0; i < tamLinhas; i++) {
+            for (int j = 1; j < i; j++) { 
+                vetSaida[i][j] = vetSaida[i-1][j -1] + vetSaida[i-1][j];
+            }
+        }
+        return vetSaida;
     }
 
 }
