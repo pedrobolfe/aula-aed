@@ -219,16 +219,27 @@ public class AED2024_3B_T01 {
     }
 
     public static int[][] trianguloPascal(int tamLinhas){
-        // usando a 2 propriedade
-        //int[][] vetSaida = new int[tamLinhas][tamLinhas];
         int[][] vetSaida = inicializandoTriangulo(tamLinhas);
-
+        // usando a 1 propriedade
         for (int i = 0; i < tamLinhas; i++) {
             for (int j = 1; j < i; j++) { 
-                vetSaida[i][j] = vetSaida[i-1][j -1] + vetSaida[i-1][j];
+                // pegar os valores a cima da linha, um em cima do da posicao j e o outro ao lado esquerdo dele e faz a soma
+                vetSaida[i][j] =  vetSaida[i-1][j] + vetSaida[i-1][j -1];
             }
         }
         return vetSaida;
+    }
+
+    public static int[][] matrizPermutacaoLinhas(int[][] matriz, int linha1, int linha2){
+        int[][] vetSaida = matriz;
+        int[] temp;
+        //for (int i = 0; i< matriz[0].length; i++){
+        temp = matriz[linha2-1];
+        matriz[linha2-1] = matriz[linha1-1];
+        matriz[linha1-1] =temp;
+
+        //}
+        return matriz;
     }
 
 }

@@ -11,7 +11,7 @@ public class Aula33 {
         };
         
 
-        int[][] saida= Trabalho.AED2024_3B_T01.trianguloPascal(6);
+        int[][] saida= Trabalho.AED2024_3B_T01.matrizPermutacaoLinhas(vet, 1, 2);
         Trabalho.AED2024_3B_T01.mostrarMatriz(saida);
         System.out.println();
     }
