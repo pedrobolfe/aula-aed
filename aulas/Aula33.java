@@ -11,8 +11,8 @@ public class Aula33 {
         };
         
 
-        int[][] saida= Trabalho.AED2024_3B_T01.matrizPermutacaoLinhas(vet, 1, 2);
-        Trabalho.AED2024_3B_T01.mostrarMatriz(saida);
+        int[][] saida= Trabalho.T3.matrizPermutacaoLinhas(vet, 1, 2);
+        Trabalho.T3.mostrarMatriz(saida);
         System.out.println();
     }
 }

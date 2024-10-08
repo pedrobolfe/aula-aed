@@ -1,6 +1,6 @@
 package Trabalho;
 
-public class AED2024_3B_T01 {
+public class T3 {
     public static void mostrarMatriz(int[][] arr){
         for (int i = 0; i < arr.length; i++) {
             System.out.print("[");
