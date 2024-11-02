@@ -1,5 +1,8 @@
 package libs;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class Vetores {
 
     public static int[] lerInteiros(int n){
@@ -318,5 +321,73 @@ public class Vetores {
             outVetor[i] = !vetor[i];
         }
         return outVetor;
+    }
+
+    public static int[] gerarValoresAleatorios(int n, int valor_min, int valor_max) {
+        Random random = new Random();
+        int[] vetor = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            // Gera um número aleatório entre min (inclusivo) e max (inclusivo),
+            //   e salva na posição i do vetor
+            vetor[i] = random.nextInt(valor_max - valor_min + 1) + valor_min;
+        }
+        
+        return vetor;
+    }
+
+    public static int[] gerarValoresAleatoriosOrdenado(int n, int valor_min, int valor_max) {
+
+        //Obtém um vetor de valores aleatórios
+        int[] vetor = gerarValoresAleatorios(n, valor_min, valor_max);
+
+        // Ordena o vetor antes de retornar
+        Arrays.sort(vetor);
+
+        return vetor;
+    }
+
+    public static long medirTempoIniciar(){
+        long tempo_inicio = System.currentTimeMillis();
+    
+        return tempo_inicio;
+    }
+    
+    //Chamar para parar de contar o tempo
+    public static double medirTempoFinalizarSegundos(long tempo_inicio){
+        long tempo_fim = System.currentTimeMillis();
+    
+        double duracao_segundos = (tempo_fim - tempo_inicio) / 1000.0;
+    
+        return duracao_segundos;
+    }
+
+    public static int buscaSequencial(int[] arr, int val) {
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] == val) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static int buscaBinaria(int[] arr, int val){
+        int ini = 0;
+        int fim = arr.length;
+        int meio;
+
+        while (ini <= fim) {
+            meio = (ini + fim) /2;
+            if (val == arr[meio]) {
+                return meio;
+            } else {
+                if (val < arr[meio]) {
+                    fim = meio -1;
+                } else {
+                    ini = meio +1;
+                }
+            }
+        }
+        return -1;
     }
 }

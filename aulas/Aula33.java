@@ -1,9 +1,10 @@
 package aulas;
+import libs.Vetores;
 
 public class Aula33 {
     public static void aula() {
-        System.out.println("== Aula 32 - Trabalho ==");
-
+        System.out.println("== Aula 33 - Trabalho ==");
+        
         int[][] vet = {
             {1, 1, 4},
             {2, 2, 2},
@@ -15,4 +16,6 @@ public class Aula33 {
         Trabalho.T3.mostrarMatriz(saida);
         System.out.println();
     }
+
+    
 }
