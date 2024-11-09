@@ -1,7 +1,10 @@
 package aulas;
 
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 import java.util.Stack;
 
 import libs.Vetores;
@@ -10,7 +13,13 @@ public class Aula35 {
     public static void aula() {
         System.out.println("== Aula 35 - Filas ==");
 
-        ex02();
+        String[] exp = {"2", "3", "+", "5", "5", "*"};
+
+        double resp = calcularPolonesaReversa(exp);
+
+        //System.out.println("Resultado da expressão é "+ resp);
+
+        ex03();
     }
 
     public static void ex01(){
@@ -66,9 +75,35 @@ public class Aula35 {
         Stack<Integer> pilha = new Stack<>();
 
         for (int i = 0; i < valores.length; i++){
-            pilha.push(int valores[i]);
-
+            if (valores[i] == "+"){
+                saida += (pilha.pop() + pilha.pop());
+            } else if (valores[i] == "-"){
+                saida += (pilha.pop() - pilha.pop());
+            } else if (valores[i] == "/"){
+                saida += (pilha.pop() / pilha.pop());
+            } else if(valores[i] == "*"){
+                saida += (pilha.pop() * pilha.pop());
+            } else {
+                int num = Integer.parseInt(valores[i]);
+                pilha.push(num);
+            }
         }
         return saida;
+    }
+
+    public static void ex03(){
+        Set<Integer> conjunto = new HashSet<>();
+
+        conjunto.add(10);
+        conjunto.add(20);
+        conjunto.add(30);
+        conjunto.add(20);
+        conjunto.add(50);
+
+        for (int y : conjunto){
+            System.out.println(y);
+        }
+        
+        System.out.println(conjunto.contains(30));
     }
 }
