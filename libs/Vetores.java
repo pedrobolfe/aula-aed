@@ -390,4 +390,30 @@ public class Vetores {
         }
         return -1;
     }
+
+    public static int obterDigitoPos(int x, int k){
+        return (int) ((x % Math.pow(10, k)) / Math.pow(10, k-1));
+    }
+
+    public static int[] coutingSort(int vet[], int k){
+        int[] vetContador = new int[vet.length+1];
+        int[] vetAcumulado = new int[vet.length+1];
+        int[] vetOrdenado = new int[vet.length];
+        int p;
+        for (int i = 0; i < vet.length; i++) {
+            p = obterDigitoPos(vet[i], k);
+            vetContador[p] += 1;
+        }
+
+        for (int i = 1; i < vetContador.length; i++) {
+            vetAcumulado[i] = vetContador[i-1] + vetAcumulado[i-1];
+        }
+
+        for (int i=0; i < vet.length; i++){
+            p = obterDigitoPos(vet[i], k);
+            vetOrdenado[vetAcumulado[p]++] = vet[i];
+        }
+
+        return vetOrdenado;
+    }
 }

@@ -6,6 +6,6 @@ import aulas.*;
 
 public class Main{
     public static void main(String[] args){
-        aulas.Aula34.aula();
+        aulas.Aula36.aula();
     }
 }
