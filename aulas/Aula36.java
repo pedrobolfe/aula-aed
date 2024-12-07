@@ -7,7 +7,7 @@ public class Aula36 {
         System.out.println("== Aula 36 - Ordenacao ==");
 
         int[] vet = {27, 19, 21, 12, 92, 71, 05};
-        int[] result = Vetores.coutingSort(vet, 1);
+        int[] result = Vetores.radixSort(vet);
 
         Vetores.mostrarVetInt(result);
     }

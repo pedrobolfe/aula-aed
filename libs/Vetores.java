@@ -391,29 +391,219 @@ public class Vetores {
         return -1;
     }
 
-    public static int obterDigitoPos(int x, int k){
-        return (int) ((x % Math.pow(10, k)) / Math.pow(10, k-1));
+    public static int[] troca(int[] v, int i, int j){
+        int temp = v[i];
+        v[i] = v[j];
+        v[j] = temp;
+
+        return v;
     }
 
-    public static int[] coutingSort(int vet[], int k){
-        int[] vetContador = new int[vet.length+1];
-        int[] vetAcumulado = new int[vet.length+1];
-        int[] vetOrdenado = new int[vet.length];
-        int p;
-        for (int i = 0; i < vet.length; i++) {
-            p = obterDigitoPos(vet[i], k);
-            vetContador[p] += 1;
+    public static void ordenarInsertionSort(int[] v){
+        int i, j;
+
+        for(i = 1; i<v.length; i++){
+            
+            j = i ;
+            while (j>0 && v[j-1] > v[j]){ {
+                v = troca(v,j,j-1);
+                j--;
+            }
+
+        }
+    
+    }
+    }
+
+    public static void ordenarSelectorSort(int[] v){
+
+        int i, j, menor_val, menor_pos;
+
+        for (i = 0; i < v.length-1; i++){
+            menor_val = v[i];
+            menor_pos = i;
+
+            for (j = i+1; j < v.length; j++){
+                if (v[j] < menor_val){
+                    menor_val = v[j];
+                    menor_pos = j;
+                }
+            }
+
+            troca(v, i, menor_pos);
         }
 
-        for (int i = 1; i < vetContador.length; i++) {
-            vetAcumulado[i] = vetContador[i-1] + vetAcumulado[i-1];
+
+    }
+
+    public static void ordenarBubbleSort(int[] v){
+        int i, j, troca;
+        int[] vet= new int[v.length];
+        for (i = 0; i < v.length-1; i++){
+            troca = 0;
+
+            for (j = 0; j < v.length-1-i; j++){
+                if (v[j] > v[j+1]){
+                    vet =troca(v, j, j+1);
+                    troca = 1;
+                }
+            }
+
+            if (troca == 0) {
+                break;
+            }
+        }
+    }
+
+    public static int[] merge(int[] va, int[] vb) {
+        int i = 0, j = 0, k = 0;
+        int[] vc = new int[va.length + vb.length];
+    
+        while (i < va.length && j < vb.length) {
+            if (va[i] < vb[j]) {
+                vc[k++] = va[i++];
+            } else {
+                vc[k++] = vb[j++];
+            }
+        }
+    
+        // Copiar os elementos restantes de va (se houver)
+        while (i < va.length) {
+            vc[k++] = va[i++];
+        }
+    
+        // Copiar os elementos restantes de vb (se houver)
+        while (j < vb.length) {
+            vc[k++] = vb[j++];
+        }
+    
+        return vc;
+    }
+    
+    public static int[] subVetores(int[] v, int ini, int fim) {
+        int[] subVet = new int[fim - ini];
+        System.arraycopy(v, ini, subVet, 0, fim - ini);
+        return subVet;
+    }
+    
+    public static int[] mergeSort(int[] v) {
+        // Vetores com 0 ou 1 elemento já estão ordenados
+        if (v.length <= 1) {
+            return v;
+        }
+    
+        int meio = v.length / 2;
+    
+        // Dividindo o vetor em duas partes
+        int[] esquerda = subVetores(v, 0, meio);
+        int[] direita = subVetores(v, meio, v.length);
+    
+        // Ordenando as duas partes
+        int[] esquerdaOrdenada = mergeSort(esquerda);
+        int[] direitaOrdenada = mergeSort(direita);
+    
+        // Mesclando as duas partes ordenadas
+        return merge(esquerdaOrdenada, direitaOrdenada);
+    }
+
+
+    public static int particionar(int[] v, int inicio, int fim) {
+        int pivot = v[fim - 1];
+        int i = inicio - 1;
+
+        for (int j = inicio; j < fim; j++) {
+            if (v[j] < pivot) {
+                i++;
+                troca(v, i, j);
+            }
         }
 
-        for (int i=0; i < vet.length; i++){
-            p = obterDigitoPos(vet[i], k);
-            vetOrdenado[vetAcumulado[p]++] = vet[i];
+        troca(v, i + 1, fim - 1);
+
+        return i + 1;
+    }
+
+    public static void quickSort(int[] v, int inicio, int fim) {
+        if (inicio < fim) {
+            int pos_pivot = particionar(v, inicio, fim);
+            quickSort(v, inicio, pos_pivot);
+            quickSort(v, pos_pivot + 1, fim);
+        }
+    }
+
+    public static int obterDigito(int x, int k){
+        return (x%(int) Math.pow(10, k))/(int) Math.pow(10, k-1)%10;
+    }
+
+    public static int[] countingSort(int[] v) {
+
+        int[] contador = new int[v.length];
+        int[] contador_acumulado = new int[v.length];
+        int[] resultado = new int[v.length];
+
+
+
+        for (int i = 0; i < v.length; i++) {
+            contador[v[i]]++;
         }
 
-        return vetOrdenado;
+        for (int i = 1; i < contador.length; i++) {
+            contador_acumulado[i] = contador[i-1] + contador_acumulado[i-1];
+        }
+
+        for (int i = 0; i < v.length; i++) {
+            resultado[contador_acumulado[v[i]]++] = v[i];
+        }
+
+        return resultado;
+    }
+
+    public static int[] countinGSort(int[] v, int k) {
+        int[] cont = new int[10];
+        int[] contador_acumulado = new int[10];
+        int[] resultado = new int[v.length];
+        int  p = 0; 
+
+        for (int i = 0; i < resultado.length; i++) {
+            p = obterDigito(v[i], k);
+            cont[p]++;
+        }
+
+        for (int i = 1; i < cont.length; i++) {
+            contador_acumulado[i] = cont[i-1] + contador_acumulado[i-1];
+        }
+
+        for (int i = 0; i < v.length; i++) {
+            p = obterDigito(v[i], k);
+            resultado[contador_acumulado[p]++] = v[i];
+        }
+
+        return resultado;
+    }
+    
+    public  static int maiorValorVetor(int [] a){
+        int maior_valor = a[0];
+
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] > maior_valor) {
+                maior_valor = a[i];
+            }
+        }
+
+        return maior_valor;
+    }
+
+    public static int [] radixSort(int [] v){
+        int maior_valor = Vetores.maiorValorVetor(v);
+        int k = 1;
+
+        while(maior_valor > Math.pow(10, k)){
+          k++;
+        }
+
+        for(int i = 1; i<=k; i++){
+            v = countinGSort(v, i);
+        }
+        return v;
     }
 }
